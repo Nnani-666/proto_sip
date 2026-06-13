@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeTour - AI-Powered Location Safety Analyzer</title>
+    <meta name="color-scheme" content="light dark">
+    <script>
+      {
+        const colorScheme = localStorage.getItem("color-scheme") || "dark";
+        document.documentElement.classList.toggle("dark", colorScheme === "dark");
+        document.documentElement.setAttribute("data-theme", colorScheme);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

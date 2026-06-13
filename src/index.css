@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+@import "leaflet/dist/leaflet.css";
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+}
+
+:root {
+  --bg-color: #FFFFFF;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --accent-primary: #111111;
+  --accent-primary-hover: #333333;
+  --accent-secondary: #555555;
+  --accent-secondary-hover: #333333;
+  --accent-danger: #111111;
+  --accent-warning: #666666;
+  
+  --card-bg: #FAFAFA;
+  --card-border: #E5E5E5;
+  --card-hover-bg: #F5F5F5;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  
+  --shadow-glow: none;
+  --shadow-success-glow: none;
+  --shadow-danger-glow: none;
+  --transition-normal: 0.15s ease-in-out;
+  --border-radius-lg: 0.375rem; /* Clean, small rounding (6px) */
+}
+
+html[data-theme="dark"] {
+  --bg-color: #111111;
+  --text-primary: #FAFAFA;
+  --text-secondary: #999999;
+  --accent-primary: #FAFAFA;
+  --accent-primary-hover: #E5E5E5;
+  --accent-secondary: #AAAAAA;
+  --accent-secondary-hover: #FAFAFA;
+  --accent-danger: #FAFAFA;
+  --accent-warning: #999999;
+  
+  --card-bg: #1A1A1A;
+  --card-border: #333333;
+  --card-hover-bg: #222222;
+  --navbar-bg: rgba(17, 17, 17, 0.95);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Background animated layers - removed animated gradients */
+.app-background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: var(--bg-color);
+}
+
+/* Clean dashboard panels */
+.glass-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-lg);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.glass-panel-hover:hover {
+  background: var(--card-hover-bg);
+  border-color: var(--text-primary);
+}
+
+.gradient-text {
+  color: var(--text-primary);
+}
+
+.gradient-text-green {
+  color: var(--text-primary);
+}
+
+/* Custom leaflet adjustment */
+.leaflet-container {
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--card-border);
+  z-index: 1;
+}
+
+/* Print Styling */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  
+  nav, 
+  button, 
+  .no-print, 
+  form, 
+  .leaflet-container,
+  .floating-widget,
+  [role="button"] {
+    display: none !important;
+  }
+  
+  .glass-panel {
+    border: 1px solid #111111 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    padding: 1.5rem !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Scrollbar customization - simplified */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: var(--border-radius-lg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}

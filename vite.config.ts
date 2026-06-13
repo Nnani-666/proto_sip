@@ -3,9 +3,10 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-// Note: Replace 'safe_route' below with your actual GitHub repository name
 export default defineConfig({
-  base: '/safe_tour_sip_final/',
+  // base must match the repository name when deploying to GitHub Pages
+  // This makes built asset URLs like /proto_sip/assets/... so the site serves correctly
+  base: '/proto_sip/',
   plugins: [
     react(),
     tailwindcss(),
